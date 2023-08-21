@@ -3,8 +3,11 @@ from todo.models import Task
 
 def home(request):
     taskscom=Task.objects.filter(is_completed=False).order_by('-updatedAt')
+    completed=Task.objects.filter(is_completed=True)
+    
     context={
-        'taskscom':taskscom
+        'taskscom':taskscom,
+        "completed":completed
     }
     # tasksinc=Task.objects.filter(is_completed=True)
     # context={
